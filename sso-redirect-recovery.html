@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signing In - NTG Central</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <noscript>
+        <style>
+            .countdown-section {
+                display: none !important;
+            }
+
+            .no-js-message {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+</head>
+
+<body>
+    <main class="container" role="main">
+        <div class="card">
+            <!-- NTG CENTRAL Logo -->
+            <div class="logo-header">
+                <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 106.979 39.995"
+                    role="img" aria-label="NTG Central Logo">
+                    <g transform="translate(-454.021 -364.002)">
+                        <g transform="translate(454.021 364.002)">
+                            <path
+                                d="M468.161,360.282c-1.724.279-3.415,3.041-2.685,5.121,1.009,2.881,3.121,7.65,6.1,7.719,2.978-.069,5.093-4.838,6.1-7.719a4.325,4.325,0,0,0-2.683-5.121,20.758,20.758,0,0,0-6.829,0"
+                                transform="translate(-451.216 -360)" fill="#102040"></path>
+                            <path
+                                d="M452.856,370.837c-.86,1.558.191,4.632,2.233,5.351,2.833.99,7.8,2.271,9.711-.058,1.8-2.435-.527-7.1-2.1-9.7a4.157,4.157,0,0,0-5.6-1.047,21.5,21.5,0,0,0-4.248,5.451"
+                                transform="translate(-450.203 -360.375)" fill="#102040"></path>
+                            <path
+                                d="M451.521,389.775c.65,1.66,3.661,2.728,5.483,1.542,2.53-1.649,6.6-4.816,6.007-7.8-.735-2.958-5.749-4.005-8.721-4.364a4.264,4.264,0,0,0-4.29,3.819,22.452,22.452,0,0,0,1.521,6.806"
+                                transform="translate(-450 -361.842)" fill="#102040"></path>
+                            <path
+                                d="M465.017,402.57c1.679.507,4.378-1.231,4.608-3.427.315-3.047.428-8.282-2.22-9.673-2.719-1.25-6.644,2.1-8.775,4.257a4.393,4.393,0,0,0,.246,5.809,21.141,21.141,0,0,0,6.142,3.033"
+                                transform="translate(-450.608 -362.828)" fill="#102040"></path>
+                            <path
+                                d="M483.411,399.751c1.43-1.018,1.784-4.264.25-5.813-2.132-2.156-6.067-5.512-8.779-4.253-2.646,1.384-2.535,6.622-2.217,9.664a4.235,4.235,0,0,0,4.591,3.426,21.03,21.03,0,0,0,6.155-3.024"
+                                transform="translate(-451.789 -362.845)" fill="#102040"></path>
+                            <path
+                                d="M492.519,383.434c.111-1.777-2.138-4.077-4.28-3.819-2.976.365-7.987,1.418-8.724,4.367-.593,2.986,3.48,6.158,6,7.8a4.159,4.159,0,0,0,5.482-1.54,21.935,21.935,0,0,0,1.519-6.808"
+                                transform="translate(-452.341 -361.887)" fill="#102040"></path>
+                            <path
+                                d="M485.831,365.761c-1.286-1.206-4.456-.833-5.594,1.039-1.575,2.611-3.895,7.273-2.1,9.7,1.924,2.333,6.879,1.056,9.71.063,2.039-.715,3.01-3.748,2.243-5.346a21.555,21.555,0,0,0-4.259-5.454"
+                                transform="translate(-452.185 -360.403)" fill="#102040"></path>
+                            <path
+                                d="M475.657,371.955c-.226,1.3-1.9,4.659-.567,6.369,1.449,1.849,4.908.787,6.233.891l-.173.054c-1.143.634-4.752,1.387-5.224,3.522-.519,2.311,2.458,4.412,3.207,5.542l-.158-.1c-1.193-.518-4.02-2.936-5.946-1.985-2.091,1.026-1.837,4.712-2.241,6.014l-.015-.191c-.344-1.28-.269-5.038-2.189-5.982-2.093-1.034-4.751,1.465-6,1.954l.14-.13c.755-1.075,3.691-3.353,3.214-5.491-.516-2.3-4.085-2.878-5.244-3.572l.188.027c1.3-.061,4.869.857,6.2-.85,1.452-1.849-.34-5.06-.527-6.414l.094.157c.852,1.008,2.38,4.433,4.51,4.433,2.317,0,3.662-3.425,4.576-4.433Z"
+                                transform="translate(-450.85 -361.196)" fill="#102040"></path>
+                        </g>
+                        <text transform="translate(502 382)" fill="#102040" font-size="14" letter-spacing="-0.02em">
+                            <tspan class="ntg-text" x="0" y="0" font-weight="600">NTG </tspan>
+                            <tspan class="central-text" x="0" y="14" font-weight="400">CENTRAL</tspan>
+                        </text>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Status Message -->
+            <div class="status-section">
+                <h1 class="status-heading">You're now signed in.</h1>
+                <p class="status-instructions">If you're not taken to your page automatically in 5 seconds, select an
+                    option below.</p>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="nav-section" aria-label="Quick navigation">
+                <div class="nav-links">
+                    <a href="#" id="agency-link" class="nav-link hidden">[Agency] intranet</a>
+                    <a href="./?a=283949" id="ntg-central-link" class="nav-link">NTG Central</a>
+                </div>
+            </nav>
+
+            <!-- Countdown Indicator -->
+            <div class="countdown-section" id="countdown-section" aria-live="polite" aria-atomic="true">
+                <div class="spinner" role="status" aria-label="Loading"></div>
+                <span class="countdown-text" id="countdown-text">Redirecting to your page in 5s...</span>
+            </div>
+
+            <!-- No JavaScript Fallback -->
+            <noscript>
+                <div class="no-js-message">
+                    <strong>Please select an option above to continue.</strong>
+                </div>
+            </noscript>
+            <div class="no-js-message" id="no-js-fallback">
+                <strong>Please select an option above to continue.</strong>
+            </div>
+
+            <!-- Screen Reader Announcements -->
+            <div class="sr-only" role="status" aria-live="polite" id="sr-announcements"></div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            Northern Territory Government · Secure Access Portal
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
