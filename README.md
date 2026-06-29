@@ -40,13 +40,20 @@ The script expects the following object stored in `localStorage` under the key `
 ```json
 {
   "intranetName": "Department of Health",
-  "intranetGlobe": "123456"
+  "intranetURL": "https://internal.nt.gov.au/department/",
+  "intranetGlobe": "123456",
+  "secondaryNavigationNTGCJSON": "[...]"
 }
 ```
 
 Fields:
+
 - `intranetName` (string) — Display name used for link text
 - `intranetGlobe` (string) — Squiz Matrix asset ID used to build `./?a={assetID}` URL
+- `intranetURL` (string, optional) — Direct URL to the agency intranet (used for informational/debugging)
+- `secondaryNavigationNTGCJSON` (string, optional) — JSON blob containing secondary navigation items (as exported by Matrix)
+
+Note: the script now avoids appending the word "intranet" if the provided `intranetName` already includes it (case-insensitive). This prevents results like "DCDD Intranet intranet".
 
 If this data is missing or invalid, the agency link will be hidden and the countdown will either target the NTG Central link or be disabled if no valid link exists.
 
@@ -56,12 +63,12 @@ If this data is missing or invalid, the agency link will be hidden and the count
 
 Two approaches depending on your Squiz Matrix setup:
 
-1) Recommended — keep files separate
+1. Recommended — keep files separate
    - Upload `styles.css` and `script.js` as static assets in Matrix (or host them where accessible)
    - Update the `<link>`/`<script>` references in `sso-redirect-recovery.html` to point to the Matrix asset URLs
    - Paste the HTML into your paint layout and publish
 
-2) Single-file paint layout (if required by Matrix)
+2. Single-file paint layout (if required by Matrix)
    - Inline `styles.css` into a `<style>` tag in the document head
    - Inline `script.js` into a `<script>` tag before `</body>`
    - Paste the combined HTML into your paint layout and publish
@@ -87,14 +94,17 @@ Open `sso-redirect-recovery.html` in a browser and run in DevTools Console:
 
 ```javascript
 // Valid data
-localStorage.setItem('intra-user-departmentInfo', JSON.stringify({
-  intranetName: 'Department of Health',
-  intranetGlobe: '123456'
-}));
+localStorage.setItem(
+  "intra-user-departmentInfo",
+  JSON.stringify({
+    intranetName: "Department of Health",
+    intranetGlobe: "123456",
+  }),
+);
 location.reload();
 
 // No data
-localStorage.removeItem('intra-user-departmentInfo');
+localStorage.removeItem("intra-user-departmentInfo");
 location.reload();
 ```
 
