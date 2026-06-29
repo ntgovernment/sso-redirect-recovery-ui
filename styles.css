@@ -1,0 +1,214 @@
+/* SSO Redirect Recovery - Styles */
+
+/* CSS Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    "Roboto",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background-color: #102040;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Main Container */
+.container {
+  width: 100%;
+  max-width: 384px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* White Card */
+.card {
+  width: 100%;
+  background: #ffffff;
+  padding: 32px;
+  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Logo Header */
+.logo-header {
+  height: 52px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.logo-svg {
+  height: 40px;
+  width: auto;
+}
+
+/* Logo SVG text fallback for neue-haas-grotesk-display font */
+.logo-svg text {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+}
+
+.logo-svg .ntg-text {
+  font-weight: 600;
+}
+
+.logo-svg .central-text {
+  font-weight: 400;
+}
+
+/* Status Section */
+.status-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.status-heading {
+  color: #20a030;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.status-instructions {
+  color: #555555;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+/* Navigation Links */
+.nav-section {
+  margin-top: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: #102040;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.7;
+}
+
+.nav-link:focus {
+  outline: 2px solid #102040;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.nav-link:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid #102040;
+  outline-offset: 2px;
+}
+
+.nav-link.hidden {
+  display: none;
+}
+
+/* Countdown Section */
+.countdown-section {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.6;
+}
+
+.countdown-section.hidden {
+  display: none;
+}
+
+/* Spinner Animation */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 1.33px solid #102040;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.countdown-text {
+  color: #102040;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+/* Footer */
+.footer {
+  margin-top: 24px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* No JavaScript Fallback */
+.no-js-message {
+  display: none;
+  margin-top: 24px;
+  padding: 12px;
+  background: #f0f0f0;
+  border-left: 3px solid #102040;
+  color: #333;
+  font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .card {
+    padding: 24px;
+  }
+}
