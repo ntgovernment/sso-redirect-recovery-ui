@@ -73,7 +73,11 @@
   function updateNavigationLinks(deptInfo) {
     if (deptInfo && deptInfo.name && deptInfo.assetId) {
       // Show and populate agency link
-      agencyLink.textContent = deptInfo.name + " intranet";
+      // Only append 'intranet' if it's not already in the name
+      const linkText = deptInfo.name.toLowerCase().includes("intranet")
+        ? deptInfo.name
+        : deptInfo.name + " intranet";
+      agencyLink.textContent = linkText;
       agencyLink.href = buildAgencyUrl(deptInfo.assetId);
       agencyLink.classList.remove("hidden");
       return true;
