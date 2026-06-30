@@ -1,6 +1,6 @@
 // SSO Redirect Recovery - Auto-redirect with countdown and fallback links
 // Data source: localStorage 'intra-user-departmentInfo' JSON with {intranetName: string, intranetGlobe: assetID}
-// URL format: ./?a={assetID} (Squiz Matrix navigation)
+// Agency URL format: ./?a={assetID} (Squiz Matrix navigation)
 
 (function () {
   "use strict";
@@ -10,7 +10,7 @@
 
   // Configuration
   const COUNTDOWN_SECONDS = 5;
-  const NTG_CENTRAL_ASSET_ID = "283949";
+  const NTG_CENTRAL_URL = "https://ntgcentral.nt.gov.au";
 
   // State
   let countdownTimer = null;
@@ -28,6 +28,11 @@
   // Hide no-JS fallback since JavaScript is enabled
   if (noJsFallback) {
     noJsFallback.style.display = "none";
+  }
+
+  // Ensure NTG Central always targets the configured URL
+  if (ntgCentralLink) {
+    ntgCentralLink.href = NTG_CENTRAL_URL;
   }
 
   // Retrieve department info from localStorage

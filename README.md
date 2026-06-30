@@ -113,7 +113,7 @@ location.reload();
 ## Customization
 
 - `COUNTDOWN_SECONDS` in `script.js` — change the countdown duration
-- `NTG_CENTRAL_ASSET_ID` in `script.js` — change fallback NTG Central asset ID
+- `NTG_CENTRAL_URL` in `script.js` — change fallback NTG Central URL
 - Colors and typography — edit `styles.css`
 
 ---
