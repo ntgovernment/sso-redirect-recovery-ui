@@ -46,11 +46,11 @@
       }
 
       const deptInfo = JSON.parse(deptInfoRaw);
-      const { intranetName, intranetGlobe } = deptInfo;
+      const { intranetName, intranetGlobe, intranetURL } = deptInfo;
 
-      if (!intranetName || !intranetGlobe) {
+      if (!intranetName || (!intranetURL && !intranetGlobe)) {
         console.warn(
-          "Missing intranetName or intranetGlobe in department info:",
+          "Missing intranetName and intranetURL/intranetGlobe in department info:",
           deptInfo,
         );
         return null;
@@ -58,6 +58,7 @@
 
       return {
         name: intranetName,
+        url: intranetURL,
         assetId: intranetGlobe,
       };
     } catch (error) {
@@ -70,20 +71,30 @@
   }
 
   // Build agency intranet URL
-  function buildAgencyUrl(assetId) {
-    return "./?a=" + assetId;
+  function buildAgencyUrl(deptInfo) {
+    if (deptInfo && deptInfo.url) {
+      return deptInfo.url;
+    }
+
+    if (deptInfo && deptInfo.assetId) {
+      return "./?a=" + deptInfo.assetId;
+    }
+
+    return null;
   }
 
   // Update navigation links with agency data
   function updateNavigationLinks(deptInfo) {
-    if (deptInfo && deptInfo.name && deptInfo.assetId) {
+    const agencyUrl = buildAgencyUrl(deptInfo);
+
+    if (deptInfo && deptInfo.name && agencyUrl) {
       // Show and populate agency link
       // Only append 'intranet' if it's not already in the name
       const linkText = deptInfo.name.toLowerCase().includes("intranet")
         ? deptInfo.name
         : deptInfo.name + " intranet";
       agencyLink.textContent = linkText;
-      agencyLink.href = buildAgencyUrl(deptInfo.assetId);
+      agencyLink.href = agencyUrl;
       agencyLink.classList.remove("hidden");
       return true;
     } else {

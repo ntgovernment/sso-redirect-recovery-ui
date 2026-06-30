@@ -51,8 +51,8 @@ The script expects the following object stored in `localStorage` under the key `
 Fields:
 
 - `intranetName` (string) — Display name used for link text
-- `intranetGlobe` (string) — Squiz Matrix asset ID used to build the agency URL `./?a={assetID}`
-- `intranetURL` (string, optional) — Direct URL to the agency intranet (used for informational/debugging)
+- `intranetURL` (string) — Full agency intranet URL used for the agency link
+- `intranetGlobe` (string, optional fallback) — Squiz Matrix asset ID used only if `intranetURL` is unavailable (`./?a={assetID}`)
 - `secondaryNavigationNTGCJSON` (string, optional) — JSON blob containing secondary navigation items (as exported by Matrix)
 
 Note: the script now avoids appending the word "intranet" if the provided `intranetName` already includes it (case-insensitive). This prevents results like "DCDD Intranet intranet".
