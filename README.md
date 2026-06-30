@@ -9,6 +9,7 @@ Recovery interface for failed SSO redirects in Squiz Matrix. Displays a branded 
 - Shows a friendly, branded page when SSO redirect hangs
 - Starts a 5‑second countdown and then auto‑redirects to the first available link
 - Displays manual navigation links (user's agency intranet, NTG Central)
+- Uses a fixed NTG Central destination: `https://ntgcentral.nt.gov.au`
 - Uses localStorage `intra-user-departmentInfo` to populate agency data
 - Provides ARIA announcements and keyboard focus support for accessibility
 - Logs warnings/errors to the console to aid debugging
@@ -30,6 +31,7 @@ Recovery interface for failed SSO redirects in Squiz Matrix. Displays a branded 
 - The page redirects to the `href` of the first visible link after countdown completes.
 - Clicking any navigation link cancels the auto‑redirect.
 - If no visible links exist, the countdown is hidden and no redirect is attempted.
+- The NTG Central link always points to `https://ntgcentral.nt.gov.au`.
 
 ---
 
@@ -49,7 +51,7 @@ The script expects the following object stored in `localStorage` under the key `
 Fields:
 
 - `intranetName` (string) — Display name used for link text
-- `intranetGlobe` (string) — Squiz Matrix asset ID used to build `./?a={assetID}` URL
+- `intranetGlobe` (string) — Squiz Matrix asset ID used to build the agency URL `./?a={assetID}`
 - `intranetURL` (string, optional) — Direct URL to the agency intranet (used for informational/debugging)
 - `secondaryNavigationNTGCJSON` (string, optional) — JSON blob containing secondary navigation items (as exported by Matrix)
 
@@ -98,6 +100,7 @@ localStorage.setItem(
   "intra-user-departmentInfo",
   JSON.stringify({
     intranetName: "Department of Health",
+    intranetURL: "https://internal.nt.gov.au/department/",
     intranetGlobe: "123456",
   }),
 );
